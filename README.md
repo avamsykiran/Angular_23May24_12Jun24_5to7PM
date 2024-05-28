@@ -98,5 +98,127 @@ Angular
         And these tools are executed on the developer machine not on the client.
         And for this purpose we need nodejs.
 
-    
+    Angular CLI
+
+        is a frontier of commands or macros that help
+        in creating and managing the strucutre of an angular application. 
+        And also command for testing, packaging, and executing angular apps are found.
+
+        ng new app-name             creates a new angular app 
+
+        cd app-name
+
+            ng serve                    compile, build, and host the package into a development server running on 4200 port
+            ng serve --port 9899 -o     compile, build, and host the package into a development server running on 9899 port, 
+                                        and will launch the browser pointing to http://localhost:9899
+
+
+            ng build                    compile, build, and stores the package into 'dist' folder
+            ng test                     compile, build, and runs the test cases
+
+            ng g artifact-type artifact-name    is used to generate angular artifacts.
+
+    Angular Archetecture
+
+        talks about the list of artifacts an angular application is made up of.
+
+        1. Each angular artifact is a typescript class.
+        2. Each class is marked with a decorator to identifiy its role.
+        3. Each of these decorators are passed a json-object called meta-data which has of the configuration.
+        
+        Modules
+            @NgModule({
+                declarations:[],
+                imports:[],
+                exports:[],
+                providers:[],
+                bootstrap:[]
+            })
+            class SalesModule {
+
+            }
+
+        Directives
+            @Directive({
+                selector:'[appFastMovingStock]'
+                providers:[]
+            })
+            class FastMovingStockDirective {
+
+            }
+
+        Components
+            @Component({
+                selector:'app-dashboard',
+                templateUrl:'app-dashboard.component.html',
+                styleUrls:['app-dashboard.component.css'],
+                providers:[]
+            })
+            class SalesDashboardComponent {
+
+            }
+
+        Pipes
+            @Pipe({
+                name:'inwords'
+            })
+            class IntoWordsPipe {
+
+            }
+
+        Services
+            @Injectable({
+                providedIn:'root'
+            })
+            class StockService {
+
+            }
+
+    Angular Modules
+
+        Module is a isolated logical unit of an application.
+
+        Angular Modules and Javascript/Typescript modules live alongside one another in an angular app.
+
+        Angular Modules is a class by itself.
+
+            @NgModule({
+                declarations:[ /*list of all components, directive and pipes that belong to this module */ ],
+                imports:[ /* list of other moduels we want to import from */ ],
+                exports:[ /* list of components or pipes or directive thar belong here but are allowed to be used elsewhere */ ],
+                providers:[ /* list of services that belong to this module */ ],
+                bootstrap:[ /* list of Components that must be loaded along witht he Module */ ]
+            })
+            class SalesModule {
+
+            }
+        
+        Each angular application is hosued inside a top-level-module called 'ROOT MODULE'. The 'ROOT MODULE'
+        is generally named as 'AppModule'.
+
+        'ROOT MODULE' will not have 'exports' section in its meta-data.
+
+        Only 'ROOT MODUELE' has 'bootstrap' section in its meta-data.
+
+        ng g module ModuleName        is the command used for creating a module
+
+    Angular Feature - Html Extendability
+
+        This allows us to create our own html elements and html attributes using angular framework.
+        
+        These html-attributes created using angular framework are called Directives.
+        These html-elements created using angular framework are called Components.
+
+        index.html
+
+        <html>......</html>
+                |- <head>.....</head>
+                |- <body>.....</body>
+                         |- <app-root>....</app-root>
+                                        |- <app-header>...</app-header>
+                                        |- <app-emps-list>...</app-emps-list>
+                                        |- <app-vendors-list>...</app-vendors-list>
+                                        |- <app-orders-list>...</app-orders-list>
+
+
 
