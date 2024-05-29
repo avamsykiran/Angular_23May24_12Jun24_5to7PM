@@ -221,4 +221,50 @@ Angular
                                         |- <app-orders-list>...</app-orders-list>
 
 
+    Angular Components
 
+        Component is an html-element created using Angular Framework.
+
+        ng g c SalesDashboard --skip-tests
+
+            SalesDashboard.component.ts      Component Class         Fields and Methods
+            SalesDashboard.component.html    Component Template      HTML MarkUp
+            SalesDashboard.component.css     Component Style         style
+
+            SalesDashboard.component.ts
+                @Component({
+                    selector:'app-sales-dashboard',
+                    templateUrl:'SalesDashboard.component.html',
+                    styleUrls:['SalesDashboard.component.css'],
+                    providers:[]
+                })
+                class SalesDashboardComponent {
+
+                }
+
+    Data Binding
+
+        is the way to consuem the fields and methods of a component class in its template.
+
+        we bind the fields with DOM in the html and the methods with the events in the html.
+
+        Interpolation
+            to render the value of an expression in the content of an element.
+
+            <element> {{expression}} </element>
+
+            <p> Sum of {{n1}} and {{n2}} is {{n1+n2}} </p>
+
+        Two-Way Data Binding
+            to bind a field with a form-element. The value of the field is loaded into the form-element for the first time.
+            When ever the form-eleemnt is edited, the value of the field is as well updated.
+
+            <input [(ngModel)]="fieldName" />
+
+            'ngModel' is a directive defined in 'FormsModule' from '@angular/forms'.
+
+        One-Way Data Binding
+            Attribute Binding
+            Event Binding
+            Style Binding
+    
