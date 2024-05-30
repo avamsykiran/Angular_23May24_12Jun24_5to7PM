@@ -265,6 +265,52 @@ Angular
 
         One-Way Data Binding
             Attribute Binding
+                is about binding the value of a field to an attribute
+
+                <element [attribute]="field"></element>
+
+                <img [src]="myLogo" />
+
+                <img src="../imgs/logo.png" />
+
             Event Binding
+                is to bind a method with an event-directive.
+
+                <element (eventDirective)="method()"> </element>
+
+                html-event-attribute        eventDirective
+                    onClick                     click
+                    onDblClick                  dblClick
+                    onChange                    change
+                    onFocsu                     focus
+                    onBlur                      blur
+                    onSubmit                    ngSubmit
+                    
             Style Binding
-    
+
+                is about binding an expression to a cssProperty or a cssClass.
+
+                [style.cssProperty]="expression"
+
+                let abcd:string = "CENTER";
+                <p [style.textAlign]="abcd"> Some Text </p>
+
+                [ngStyle]="jsonObjectHavingCssPropertyNaemsAsKeysAndValuesAsValues"
+
+                let obj1 = {width:"20px",height:"100px",margin:"10px"};
+                <p [ngStyle]="obj1"> Some Text </p>
+
+                [class.className]="booleanExpression"
+
+                let flag:boolean = true;
+                <p [class.highlight]="flag"> Some Text </p>
+
+                [ngClass]="arrayOfClassNames"
+
+                let myClasses:string[] = ["hightlight","important","bordered"];
+                <p [ngClass]="myClasses"> Some Text </p>
+
+                [ngClass]="jsonObjectHavignClassNamesAsKeusAndBooleanAsValues"    
+
+                let myClasses = {"hightlight":true,"important":false,"bordered":true};
+                <p [ngClass]="myClasses"> Some Text </p>
