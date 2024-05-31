@@ -314,3 +314,62 @@ Angular
 
                 let myClasses = {"hightlight":true,"important":false,"bordered":true};
                 <p [ngClass]="myClasses"> Some Text </p>
+
+    Structural Directives
+
+        ngIf
+
+            <ng-template [ngIf]="booleanExpression">
+                <p> This para will appear only if teh boolean expression evalautes to true. </p>
+            </ng-template>
+
+            <p *ngIf="booleanExpression"> This para will appear only if teh boolean expression evalautes to true. </p>
+
+            <ng-container *ngIf="booleanExpression then template1; else template2">
+            </ng-container>
+
+            <ng-template #template1>
+                <p>Template one content</p>
+            </ng-template>            
+            
+            <ng-template #template2>
+                <p>Template two content</p>
+            </ng-template>
+
+        ngFor
+
+            <ng-template [ngFor]="let loopingVar of array">
+                <p> {{loopingVar}} </p>
+            </ng-template>
+
+            <p *ngFor="let loopingVar of array">
+                {{loopingVar}}
+            </p>
+
+        ngSwitch
+
+            <div [ngSwitch]="anExpression">
+                <p *ngSwtichCase="value1"> if expression evaluates to value1 </p>
+                <p *ngSwtichCase="value2"> if expression evaluates to value2 </p>
+                <p *ngSwtichCase="value3"> if expression evaluates to value3 </p>
+                <p *ngSwtichCase="value4"> if expression evaluates to value4 </p>
+                <p *ngSwtichDefault> if expression evaluates to none of those values </p>
+            </div>
+
+    Pipes
+
+        is a construct used to alter a value into another before rendering
+
+        built-in pipes
+
+            lowercase
+            uppercase
+            titlecase
+            number
+            percent
+            date
+            currency
+            async
+            json
+
+        {{expression|pipeName:'pipe-inputs'}}
