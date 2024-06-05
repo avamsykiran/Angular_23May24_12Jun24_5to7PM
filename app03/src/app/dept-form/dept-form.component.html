@@ -1,0 +1,10 @@
+<form class="row border-bottom border-primary p-2" (ngSubmit)="formSubmitted()">
+    <div class="col-1 text-end">{{dept.id}}</div>
+    <div class="col">
+        <input type="text" name="textbox" [(ngModel)]="dept.title" class="form-control"/>
+    </div>
+    <div class="col-3 text-center">
+        <button type="submit" class="btn btn-sm btn-primary me-1">SAVE</button>
+        <button type="button" class="btn btn-sm btn-danger me-1" (click)="cancelBtnClicked()">CANCEL</button>
+    </div>
+</form>

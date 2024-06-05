@@ -1,0 +1,16 @@
+<section class="col-sm-5 mx-auto border border-primary p-4">
+    <h3>Departments</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>Dept#</th>
+            <th>Title</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of depts">
+                <td class="text-end">{{d.id}}</td>
+                <td>{{d.title}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

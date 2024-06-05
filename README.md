@@ -373,3 +373,50 @@ Angular
             json
 
         {{expression|pipeName:'pipe-inputs'}}
+
+    Integrating Bootstrap
+
+        npm i bootstrap
+
+        include
+            'node_modules/bootstrap/dist/css/bootstrap.min.css' into 'styles' section &
+            'node_modules/bootstrap/dist/js/bootstrap.min.js' into 'scripts' section
+        of angular.json
+
+    Angular Routing
+
+        Routing features navigting between components.
+
+        import 'RouterModule' from '@angular/fouter'
+
+        router-outlet           component       used to reerve space for output of routing on the top-level component.
+
+        Routes                  Route[]
+
+        Route                   interface       path: ''
+                                                redirect: ''
+                                                pathMatch: 'startsWith|full'
+                                                component: TargetComponent
+                                                children: []
+
+        routerLink              directive       is used on 'a' tag instead of its 'href' attribute.
+
+        routerLinkActive        directive       takes a css-class-anem and applies that class on the 'a' tag only when it is active.
+
+        Router                  service         navigate(['sales','dashboard','settings']), 
+                                                navigateByUrl('sales/dashboard/settings')
+
+        ActivatedRoute          service         used to extract info like pathParameters, queryString, hostName ..etc
+                                                from the current url
+    Angular Services
+
+        A service is a injectable artifact. services are used to hold business logic and supply it
+        whereever it is needed through dependency injection.
+
+        Validation logic, caliculations, rest-api calls etc., are all held in services. 
+
+        ng g service ServiceName --skip-tests                   the servies gets created in 'app' folder
+
+        ng g service folderName/ServiceName --skip-tests        the service gets created in the specified folder.
+
+    Angular Forms
