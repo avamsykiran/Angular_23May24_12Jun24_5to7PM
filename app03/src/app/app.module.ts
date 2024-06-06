@@ -9,6 +9,8 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { DeptRowComponent } from './dept-row/dept-row.component';
 import { DeptFormComponent } from './dept-form/dept-form.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { DeptFormComponent } from './dept-form/dept-form.component';
     DepartmentsComponent,
     EmployeesComponent,
     DeptRowComponent,
-    DeptFormComponent
+    DeptFormComponent,
+    EmployeeListComponent,
+    EmployeeFormComponent
   ],
   imports: [
     BrowserModule,

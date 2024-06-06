@@ -420,3 +420,28 @@ Angular
         ng g service folderName/ServiceName --skip-tests        the service gets created in the specified folder.
 
     Angular Forms
+
+        Template Driven Form        'FormsModule' from '@angular/forms'
+
+            1. the structure and bhaviour of the form is defined using html.
+            2. each input control is bound to a field of the component.
+            3. these forms are difficult to test , as always testing JS is far more easier than testing html.
+            4. these forms do not support nested or complex models.
+
+            ngForm          valid,invalid
+            ngModel         valid,invalid,
+                            dirty,prestine,
+                            touched,untouched
+
+            Template Driven Forms are recomended only whene the form has not mroe the two fields.
+
+        Model Driven Form           'ReactiveFormsModule' from '@angular/forms'
+
+            1. the structure and behaviour of the form is defined using javascript. 
+            2. these forms are easy to test , as always testing JS is far more easier than testing html.
+            3. these forms support nested or complex models.
+
+            FormGroup           invalid,valie
+            FormControl         valid,invalid,
+                                dirty,prestine,
+                                touched,untouched

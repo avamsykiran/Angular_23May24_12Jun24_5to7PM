@@ -1,0 +1,26 @@
+<section class="border border-info border-top-0 p-2">
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Emp#</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Mail Id</th>
+                <th>DoJ</th>
+                <th>Dept</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of emps">
+                <td class="text-end">{{e.id}}</td>
+                <td>{{e.fullName}}</td>
+                <td class="text-end">{{e.salary|currency:'INR'}}</td>
+                <td>{{e.mailId}}</td>
+                <td>{{e.dateOfJoing|date:'dd-MMM-yy'}}</td>
+                <td>{{e.deptId}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
