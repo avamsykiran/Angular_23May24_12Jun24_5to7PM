@@ -9,6 +9,7 @@
                 <th>Mail Id</th>
                 <th>DoJ</th>
                 <th>Dept</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,10 @@
                 <td>{{e.mailId}}</td>
                 <td>{{e.dateOfJoing|date:'dd-MMM-yy'}}</td>
                 <td>{{e.deptId}}</td>
+                <td>
+                    <a class="btn btn-sm btn-secondary" [routerLink]="['/emps','edit',e.id]" >EDIT</a>
+                    <button type="button" class="btn btn-sm btn-danger m-1" (click)="del(e.id)">DELETE</button>
+                </td>
             </tr>
         </tbody>
     </table>

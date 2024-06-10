@@ -12,7 +12,8 @@ const routes: Routes = [
     path: 'emps', component: EmployeesComponent, children: [
       { path: '', pathMatch: 'full', redirectTo: 'list' },
       { path: 'list', component: EmployeeListComponent },
-      { path: 'add', component: EmployeeFormComponent }
+      { path: 'add', component: EmployeeFormComponent },
+      { path: 'edit/:id', component: EmployeeFormComponent }
     ]
   }
 ];

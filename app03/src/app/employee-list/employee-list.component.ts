@@ -15,4 +15,8 @@ export class EmployeeListComponent {
     this.emps = this.empService.getAll();
   }
 
+  del(id:number){
+    this.empService.deleteById(id);
+    this.emps = this.empService.getAll();
+  }
 }
