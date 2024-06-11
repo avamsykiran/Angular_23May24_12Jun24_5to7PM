@@ -445,3 +445,85 @@ Angular
             FormControl         valid,invalid,
                                 dirty,prestine,
                                 touched,untouched
+
+     Angular LifeCycle Hooks for a Component
+        constructor
+        This is invoked when Angular creates a component or directive by calling new on the class.
+
+        ngOnChanges
+        Invoked every time there is a change in one of the input properties of the component.
+
+        ngOnInit
+        Invoked when given component has been initialized.
+        This hook is only called once after the first ngOnChanges
+
+        ngDoCheck
+        Invoked when the change detector of the given component is invoked. It allows us to implement our own change detection algorithm for the given component.
+    
+    Custom Directives
+
+        ng g directive DirectiveName --skip-tests
+
+        @Directive({
+            selector:'[appFastMovingStock]'
+            providers:[]
+        })
+        class FastMovingStockDirective {
+
+        }
+
+        @Input()        for receving any values
+
+        @HostListener()    is used to handle event that occur on the elemet.
+    
+        ElementRef         represents the element on which the directive is applied.
+
+    Custom Pipes
+
+        ng g pipe PipeName --skip-tests
+
+        @Pipe({
+            name:'inwords'
+        })
+        class IntoWordsPipe implements PipeTransform {
+            transform(value:any,...args:unknown):any{
+
+            }
+        }
+
+    Observable from RxJS
+
+        An Observable is an enhanced Promise.
+
+        const bgJob = (resolve,reject) => {
+            //we use resolve(val) to indicate successful completion of the job
+            //we use reject() to indicate abortion due to an error.
+        };
+        let p = new Promise(bgJob);
+
+        p.then(
+            (val) => { /* is the implementation of resolve */ },
+            () => { /*is the implementation of the reject */ }
+        );
+
+        - only one value can be returned fromt he bgJob after its completion through resolve.
+        - once the bgJob is triggered we can not cancel it or unsubsribe from it
+        - only one subscription per promise is allowed.
+
+        const bgJob2 = (observer) => {
+            //observer.next(val)    is called every tiem the bgJob wants to emit a value
+            //observer.error(err)   is called to indicate abortion of the job due to an error
+            //observer.complete()   is called to indicate the cussful completion.
+        };
+
+        let ob = new Observable(bgJob2);
+
+        ob.subscribe({
+            next: val => { /*consuem the value*/ },
+            error: err => { /*handle the error*/ },
+            complete: () => {/*do something once the job is done*/ }
+        })
+
+        + any number of values can be returned from the bgJob while it is in progress
+        + once the bgJob is triggered we can cancel by calling 'unsubscribe'
+        + any number of subscriptions per observable are allowed.

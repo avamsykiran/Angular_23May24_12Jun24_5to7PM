@@ -11,6 +11,10 @@ import { DeptRowComponent } from './dept-row/dept-row.component';
 import { DeptFormComponent } from './dept-form/dept-form.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { ToggleColorDirective } from './toggle-color.directive';
+import { HomeComponent } from './home/home.component';
+import { DeptTitlePipe } from './dept-title.pipe';
+import { InWordsPipe } from './in-words.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
     DeptRowComponent,
     DeptFormComponent,
     EmployeeListComponent,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    ToggleColorDirective,
+    HomeComponent,
+    DeptTitlePipe,
+    InWordsPipe
   ],
   imports: [
     BrowserModule,

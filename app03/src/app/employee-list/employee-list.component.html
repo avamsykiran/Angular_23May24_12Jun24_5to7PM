@@ -19,7 +19,7 @@
                 <td class="text-end">{{e.salary|currency:'INR'}}</td>
                 <td>{{e.mailId}}</td>
                 <td>{{e.dateOfJoing|date:'dd-MMM-yy'}}</td>
-                <td>{{e.deptId}}</td>
+                <td>{{e.deptId|deptTitle}}</td>
                 <td>
                     <a class="btn btn-sm btn-secondary" [routerLink]="['/emps','edit',e.id]" >EDIT</a>
                     <button type="button" class="btn btn-sm btn-danger m-1" (click)="del(e.id)">DELETE</button>
