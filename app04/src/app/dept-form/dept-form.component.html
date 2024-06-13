@@ -1,0 +1,14 @@
+<form class="row border-bottom border-primary p-2" (ngSubmit)="formSubmitted()" #deptForm="ngForm">
+    <div class="col-1 text-end">{{dept.id}}</div>
+    <div class="col">
+        <input type="text" name="textbox" [(ngModel)]="dept.title" class="form-control" required minlength="5" #deptTitle="ngModel"/>
+        <div class="alert alert-danger p-2" *ngIf="deptTitle.invalid && (deptTitle.touched || deptTitle.dirty)">
+            <p *ngIf="deptTitle.errors!['required']">Title is a mandatory field</p>
+            <p *ngIf="deptTitle.errors!['minlength']">Title must be atleast 5 chars in length</p>
+        </div>
+    </div>
+    <div class="col-3 text-center">
+        <button type="submit" class="btn btn-sm btn-primary me-1" [disabled]="deptForm.invalid">SAVE</button>
+        <button type="button" class="btn btn-sm btn-danger me-1" (click)="cancelBtnClicked()">CANCEL</button>
+    </div>
+</form>

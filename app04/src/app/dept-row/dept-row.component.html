@@ -1,0 +1,8 @@
+<div class="row border-bottom border-primary p-2" >
+    <div class="col-1 text-end">{{dept.id}}</div>
+    <div class="col">{{dept.title}}</div>
+    <div class="col-3 text-center">
+        <button type="button" class="btn btn-sm btn-secondary me-1" (click)="edit(dept.id)">EDIT</button>
+        <button type="button" class="btn btn-sm btn-danger me-1" (click)="del(dept.id)">DELETE</button>
+    </div>
+</div>

@@ -511,7 +511,7 @@ Angular
         - only one subscription per promise is allowed.
 
         const bgJob2 = (observer) => {
-            //observer.next(val)    is called every tiem the bgJob wants to emit a value
+            //observer.next(val)    is called every time the bgJob wants to emit a value
             //observer.error(err)   is called to indicate abortion of the job due to an error
             //observer.complete()   is called to indicate the cussful completion.
         };
@@ -527,3 +527,25 @@ Angular
         + any number of values can be returned from the bgJob while it is in progress
         + once the bgJob is triggered we can cancel by calling 'unsubscribe'
         + any number of subscriptions per observable are allowed.
+
+    HttpClient from 'HttpClientModule' from '@angular/commons/http'
+
+        HttpClient
+            get(apiEndPoint) : Observable
+            post(apiEndPoint, reqBody) : Observable
+            put(apiEndPoint, reqBody) : Observable
+            delete(apiEndPoint) : Observable
+
+     Create a fake rest-api using json-server
+
+        json-server is a javascript tool that generates fake rest-api from a .json
+
+        md hr-api
+        cd hr-api
+        npm init -y
+        npm i json-server@0.17.4
+
+        create hr-api/data.json
+        change the 'start' script in the package.json as 'json-server --port 9999 --watch ./data.json'
+
+        npm start

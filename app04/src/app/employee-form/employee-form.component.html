@@ -1,0 +1,80 @@
+<section class="border border-info border-top-0 p-2">
+
+    <ng-container *ngIf="!depts && !errMsg then pleaseWait; else showForm">
+    </ng-container>
+
+    <ng-template #pleaseWait>
+        <div class="alert alert-info p-4 fw-bold">
+            Please wait while loading data...!
+        </div>
+    </ng-template>
+
+    <ng-template #showForm>
+
+        <div class="alert alert-danger p-4 fw-bold" *ngIf="errMsg">
+            {{errMsg}}
+        </div>
+
+        <form class="row p-2" [formGroup]="empForm" (ngSubmit)="formSubmitted()">
+            <div class="col-sm-5 mx-auto">
+                <div class="form-group">
+                    <label class="form-label">Employee Id</label>
+                    <input type="number" formControlName="id" class="form-control" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" formControlName="fullName" class="form-control" />
+                    <div class="alert alert-danger p-2"
+                        *ngIf="fullNameFC.invalid && (fullNameFC.touched || fullNameFC.dirty)">
+                        <p *ngIf="fullNameFC.errors!['required']">Full Name is a mandatory field</p>
+                        <p *ngIf="fullNameFC.errors!['minlength']">Full Name must be atleast 5 chars in length</p>
+                        <p *ngIf="fullNameFC.errors!['maxlength']">Full Name be atleast 5 chars in length</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Date Of Joining</label>
+                    <input type="date" formControlName="dateOfJoing" class="form-control" />
+                    <div class="alert alert-danger p-2"
+                        *ngIf="dateOfJoingFC.invalid && (dateOfJoingFC.touched || dateOfJoingFC.dirty)">
+                        <p *ngIf="dateOfJoingFC.errors!['required']">Date Of Joining is a mandatory field</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5 mx-auto">
+                <div class="form-group">
+                    <label class="form-label">Salary</label>
+                    <input type="number" formControlName="salary" class="form-control" />
+                    <div class="alert alert-danger p-2"
+                        *ngIf="salaryFC.invalid && (salaryFC.touched || salaryFC.dirty)">
+                        <p *ngIf="salaryFC.errors!['required']">Salary is a mandatory field</p>
+                        <p *ngIf="salaryFC.errors!['min']">Salary can not be negative</p>
+                        <p *ngIf="salaryFC.errors!['max']">Salary can not be exceeding 500000.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mail Id</label>
+                    <input type="email" formControlName="mailId" class="form-control" />
+                    <div class="alert alert-danger p-2"
+                        *ngIf="mailIdFC.invalid && (mailIdFC.touched || mailIdFC.dirty)">
+                        <p *ngIf="mailIdFC.errors!['required']">Mail Id is a mandatory field</p>
+                        <p *ngIf="mailIdFC.errors!['email']">Mail Id must be a valid email id.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Department</label>
+                    <select formControlName="deptId" class="form-control">
+                        <option value="">----SELECT--------</option>
+                        <option *ngFor="let d of depts" [value]="d.id">{{d.title}}</option>
+                    </select>
+                    <div class="alert alert-danger p-2"
+                        *ngIf="deptIdFC.invalid && (deptIdFC.touched || deptIdFC.dirty)">
+                        <p *ngIf="deptIdFC.errors!['required']">Department Id is a mandatory field</p>
+                    </div>
+                </div>
+                <div class="d-grid mt-2">
+                    <button class="btn btn-primary" [disabled]="empForm.invalid">SAVE</button>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+</section>

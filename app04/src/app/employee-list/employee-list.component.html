@@ -1,0 +1,46 @@
+<section class="border border-info border-top-0 p-2">
+
+    <ng-container *ngIf="!emps && !errMsg then pleaseWait; else showEmps">
+    </ng-container>
+
+    <ng-template #pleaseWait>
+        <div class="alert alert-info p-4 fw-bold">
+            Please wait while loading data...!
+        </div>
+    </ng-template>
+
+    <ng-template #showEmps>
+
+        <div class="alert alert-danger p-4 fw-bold" *ngIf="errMsg">
+            {{errMsg}}
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Emp#</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Mail Id</th>
+                    <th>DoJ</th>
+                    <th>Dept</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody *ngIf="emps && emps.length>0">
+                <tr *ngFor="let e of emps">
+                    <td class="text-end">{{e.id}}</td>
+                    <td>{{e.fullName}}</td>
+                    <td class="text-end">{{e.salary|currency:'INR'}}</td>
+                    <td>{{e.mailId}}</td>
+                    <td>{{e.dateOfJoing|date:'dd-MMM-yy'}}</td>
+                    <td>{{e.deptId|deptTitle|async}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-secondary" [routerLink]="['/emps','edit',e.id]">EDIT</a>
+                        <button type="button" class="btn btn-sm btn-danger m-1" (click)="del(e.id)">DELETE</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+</section>

@@ -1,0 +1,66 @@
+{
+  "depts": [
+    {
+      "id": 1,
+      "title": "Operations"
+    },
+    {
+      "id": 2,
+      "title": "HR"
+    },
+    {
+      "id": 3,
+      "title": "Accounts"
+    }
+  ],
+  "emps": [
+    {
+      "id": 1,
+      "fullName": "Vamsy Kiran Aripaka",
+      "dateOfJoing": "2024-01-01",
+      "mailId": "vamsy@gmail.com",
+      "salary": 90000,
+      "deptId": 1
+    },
+    {
+      "id": 2,
+      "fullName": "KGN Murthy",
+      "dateOfJoing": "2024-02-01",
+      "mailId": "murthy@gmail.com",
+      "salary": 170000,
+      "deptId": 1
+    },
+    {
+      "id": 3,
+      "fullName": "Suresh P",
+      "dateOfJoing": "2024-03-01",
+      "mailId": "suresh@gmail.com",
+      "salary": 80000,
+      "deptId": 2
+    },
+    {
+      "id": 4,
+      "fullName": "Ramesh P",
+      "dateOfJoing": "2024-04-01",
+      "mailId": "ramesh@gmail.com",
+      "salary": 80000,
+      "deptId": 2
+    },
+    {
+      "id": 5,
+      "fullName": "Krishna",
+      "dateOfJoing": "2024-05-01",
+      "mailId": "kittu@gmail.com",
+      "salary": 70000,
+      "deptId": 3
+    },
+    {
+      "id": 6,
+      "fullName": "Rahul P",
+      "dateOfJoing": "2024-06-13",
+      "salary": 500000,
+      "mailId": "rahul@gmail.com",
+      "deptId": 3
+    }
+  ]
+}

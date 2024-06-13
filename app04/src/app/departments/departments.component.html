@@ -1,0 +1,42 @@
+<section class="col-sm-6 mx-auto border border-primary p-4">
+    <h3>Departments</h3>
+
+    <ng-container *ngIf="!depts && !errMsg then pleaseWait; else showDepts">
+    </ng-container>
+
+    <ng-template #pleaseWait>
+        <div class="alert alert-info p-4 fw-bold">
+            Please wait while loading data...!
+        </div>
+    </ng-template>
+
+    <ng-template #showDepts>
+
+        <div class="alert alert-danger p-4 fw-bold" *ngIf="errMsg">
+            {{errMsg}}
+        </div>
+
+        <div class="row border-bottom border-danger fw-bold text-center p-2">
+            <div class="col-1">Dept#</div>
+            <div class="col">Title</div>
+            <div class="col-3">Actions</div>
+        </div>
+
+        <app-dept-form [save]="add"></app-dept-form>
+        
+        <ng-container *ngIf="depts && depts.length>0">
+            <ng-container *ngFor="let d of depts">
+                <ng-container *ngIf="d.editable then deptForm; else deptRow">
+                </ng-container>
+
+                <ng-template #deptRow>
+                    <app-dept-row [dept]="d" [del]="del" [edit]="markEditable"></app-dept-row>
+                </ng-template>
+
+                <ng-template #deptForm>
+                    <app-dept-form [dept]="d" [save]="upd" [cancelEdit]="unMarkEditable"></app-dept-form>
+                </ng-template>
+            </ng-container>
+        </ng-container>
+    </ng-template>
+</section>
